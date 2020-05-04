@@ -23,6 +23,7 @@ namespace SodaMachine
             Dimes = new List<Dime>();
             Nickels = new List<Nickel>();
             Pennies = new List<Penny>();
+            LoadCashToMachine();
         }
 
         //member methods (CAN DO)
