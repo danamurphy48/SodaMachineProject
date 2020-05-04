@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace SodaMachine
 {
-    class Program
+    abstract class Soda
     {
-        static void Main(string[] args)
-        {
-            SodaMachine soda = new SodaMachine();
-            //soda.
-        }
+        public string sodaType;
+        public double priceOfCan;
     }
 }
