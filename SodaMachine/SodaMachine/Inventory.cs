@@ -10,19 +10,37 @@ namespace SodaMachine
     {
         //machine starts with coins: 20 quarters, 10 dimes, 20 nickels, 50 pennies
         //member variables
-        public List<Quarter> Quarters;
-        public List<Dime> Dimes;
-        public List<Nickel> Nickels;
-        public List<Penny> Pennies;
+        public List<GrapeSoda> GrapeSodas;
+        public List<LemonSoda> LemonSodas;
+        public List<OrangeSoda> OrangeSodas;
+
         //constructor
         public Inventory()
         {
-            Quarters = new List<Quarter>();
-            Dimes = new List<Dime>();
-            Nickels = new List<Nickel>();
-            Pennies = new List<Penny>();
+            GrapeSodas = new List<GrapeSoda>();
+            LemonSodas = new List<LemonSoda>();
+            OrangeSodas = new List<OrangeSoda>();
+            LoadSodaMachine();
         }
 
         //member methods
+        public void LoadSodaMachine()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                GrapeSoda grapeSoda = new GrapeSoda();
+                GrapeSodas.Add(grapeSoda);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                LemonSoda lemonSoda = new LemonSoda();
+                LemonSodas.Add(lemonSoda);
+            }
+            for (int i = 0; i < 25; i++)
+            {
+                OrangeSoda orangeSoda = new OrangeSoda();
+                OrangeSodas.Add(orangeSoda);
+            }
+        }
     }
 }
