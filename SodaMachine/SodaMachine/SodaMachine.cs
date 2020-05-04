@@ -22,9 +22,9 @@ namespace SodaMachine
         }
 
         //member methods //can do
-        public void MakeTransaction()
+        public void MakeTransaction(Soda soda)//run soda object & double money(later listofcoins) through
         {
-
+            
         }
         public void DispenseSoda()
         {
