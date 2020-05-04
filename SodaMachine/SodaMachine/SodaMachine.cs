@@ -22,6 +22,15 @@ namespace SodaMachine
         }
 
         //member methods //can do
+        public void DisplaySodaOptions(GrapeSoda grapeSoda, LemonSoda lemonSoda, OrangeSoda orangeSoda)
+        {
+            Console.WriteLine($"Welcome to the coolest Soda Machine!");//tried to just pass soda in and be able to use all of them
+            Console.WriteLine($"We have three sodas:");
+            Console.WriteLine($"{grapeSoda.sodaType} costs {grapeSoda.priceOfCan} per can.");
+            Console.WriteLine($"{lemonSoda.sodaType} costs {lemonSoda.priceOfCan} per can.");
+            Console.WriteLine($"{ orangeSoda.sodaType} costs { orangeSoda.priceOfCan} per can.");
+
+        }
         public void MakeTransaction(Soda soda)//run soda object & double money(later listofcoins) through
         {
             

@@ -10,11 +10,12 @@ namespace SodaMachine
     {
         static void Main(string[] args)
         {
-            SodaMachine soda = new SodaMachine();
+            SodaMachine sodaMachine = new SodaMachine();
             GrapeSoda grapeSoda = new GrapeSoda();
             LemonSoda lemonSoda = new LemonSoda();
             OrangeSoda orangeSoda = new OrangeSoda();
-            soda.MakeTransaction(lemonSoda);
+            sodaMachine.DisplaySodaOptions(grapeSoda, lemonSoda, orangeSoda);
+            sodaMachine.MakeTransaction(lemonSoda);
         }
     }
 }
