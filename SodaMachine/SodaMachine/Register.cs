@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace SodaMachine
 {
     class Register
-    {//should this be a parent class? soda machine's internal money count
-     //machine starts with coins: 20 quarters, 10 dimes, 20 nickels, 50 pennies
-     //member variables (HAS A)
-     //have a list of coins? or just leave as is
+    {     
+        //have a list of coins? or just leave as is
+
+        //member variables (HAS A)
+
         public List<Quarter> Quarters;
         public List<Dime> Dimes;
         public List<Nickel> Nickels;
@@ -25,6 +26,28 @@ namespace SodaMachine
         }
 
         //member methods (CAN DO)
-
+        public void LoadCashToMachine()
+        {
+            for (int i = 0; i < 20; i++)
+            {
+                Quarter quarter = new Quarter();
+                Quarters.Add(quarter);
+            }
+            for (int i = 0; i < 10; i++)
+            {
+                Dime dime = new Dime();
+                Dimes.Add(dime);
+            }
+            for (int i = 0; i < 20; i++)
+            {
+                Nickel nickel = new Nickel();
+                Nickels.Add(nickel);
+            }
+            for (int i = 0; i < 50; i++)
+            {
+                Penny penny = new Penny();
+                Pennies.Add(penny);
+            }
+        }
     }
 }
