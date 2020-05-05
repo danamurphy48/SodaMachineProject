@@ -11,6 +11,7 @@ namespace SodaMachine
         //member variables //has a
         Inventory inventory;
         Register register;
+        //List<double> Coin;
 
         //machine starts with coins: 20 quarters, 10 dimes, 20 nickels, 50 pennies
         //constructor
@@ -18,26 +19,52 @@ namespace SodaMachine
         {
             inventory = new Inventory();
             register = new Register();
-
+            //Coin = new List<double>();
         }
 
         //member methods //can do
         public void DisplaySodaOptions(GrapeSoda grapeSoda, LemonSoda lemonSoda, OrangeSoda orangeSoda)
         {
-            Console.WriteLine($"Welcome to the coolest Soda Machine!");//tried to just pass soda in and be able to use all of them
+            Console.WriteLine($"Welcome to the coolest Soda Machine!");
             Console.WriteLine($"We have three sodas:");
             Console.WriteLine($"{grapeSoda.sodaType} costs {grapeSoda.priceOfCan} per can.");
             Console.WriteLine($"{lemonSoda.sodaType} costs {lemonSoda.priceOfCan} per can.");
             Console.WriteLine($"{ orangeSoda.sodaType} costs { orangeSoda.priceOfCan} per can.");
-
         }
-        public void MakeTransaction(Soda soda)//run soda object & double money(later listofcoins) through
+        public string ChooseSodaToBuy(GrapeSoda grapeSoda, LemonSoda lemonSoda, OrangeSoda orangeSoda)
         {
-            
+            Console.WriteLine($"Please select {grapeSoda.sodaType}, {lemonSoda.sodaType}, or {orangeSoda.sodaType}:");
+            string choice = Console.ReadLine();//data validation?
+            return choice;
+        }
+
+        public void MakeTransaction(Soda soda, double coins)//run soda object & double money(later listofcoins) through
+        {
+            if (soda.priceOfCan > coins)
+            {
+                Console.WriteLine($"You don't have enough money to purchase {soda.sodaType).";
+            }
+            else if (soda.priceOfCan == coins)
+            {
+                //complete transaction, add coins to register, dispense soda
+                soda.priceOfCan = coins;
+                coins += register;
+                register.Add(coins);
+                soda.sodaType.grapeSoda -= inventory.GrapeSodas;
+                DispenseSoda();
+            }
+            else if (soda.priceOfCan < coins)
+            {
+                //accept payment
+                double moneyReturned = coins - soda.priceOfCan;
+                coins - soda.priceOfCan = double moneyReturned;
+                //return change as a list of coins from internal limited register
+                //DispenseSoda();
+            }
         }
         public void DispenseSoda()
         {
-
+            
         }
     }
 }
@@ -53,3 +80,5 @@ namespace SodaMachine
 //double costGrapeSoda = .60;
 //double costOrangeSoda = .35;
 //double costLemonSoda = .06;
+//fix this
+//Console.WriteLine($"Please press 1. for {grapeSoda.sodaType} 2. for {lemonSoda.sodaType} or 3. for {orangeSoda.sodaType}");

@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 namespace SodaMachine
 {
     class Register
-    {     
+    {
         //have a list of coins? or just leave as is
 
         //member variables (HAS A)
-
         public List<Quarter> Quarters;
         public List<Dime> Dimes;
         public List<Nickel> Nickels;

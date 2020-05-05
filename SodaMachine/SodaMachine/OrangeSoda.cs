@@ -10,7 +10,7 @@ namespace SodaMachine
     {
         public OrangeSoda()
         {
-            sodaType = "Orange Soda";
+            sodaType = "Orange soda";
             priceOfCan = .35;
         }
     }
