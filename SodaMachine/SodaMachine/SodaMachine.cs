@@ -59,12 +59,32 @@ namespace SodaMachine
             return true;
         }
         //return change method
+        public bool GiveChange(Soda soda, double coins) //or while soda.priceOfCan != coins
+        {//changeDue is coin amount
+            if (soda.priceOfCan < coins)
+            {
+                coins -= soda.priceOfCan;
+                register.money += soda.priceOfCan;
+                double changeDue = coins;
+                Console.WriteLine($"Success! Here is your change: ${changeDue}.");
+                return true;
 
+            }
+            else if (soda.priceOfCan > coins)
+            {
+                double changeDue = coins;
+                Console.WriteLine($"The payment amount is less than the amount due for {soda.sodaType} ${soda.priceOfCan}.");
+                Console.WriteLine($"Here is your change: ${coins}.");
+                return true;
+            }
+            return false;
+        }
         public void MakeTransaction(Soda soda, double coins)//run soda object & double money(later listofcoins) through
         {
             if (soda.priceOfCan > coins)
             {
                 Console.WriteLine($"You don't have enough money to purchase {soda.sodaType}.");
+                GiveChange(soda, coins);
                 //here's your change (call method that returns change to user)
             }
             else if (soda.priceOfCan == coins)
