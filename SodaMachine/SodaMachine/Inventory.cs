@@ -8,7 +8,7 @@ namespace SodaMachine
 {
     class Inventory
     {
-        //machine starts with coins: 20 quarters, 10 dimes, 20 nickels, 50 pennies
+        //grouped list of sodas? have soda parent class?
         //member variables
         public List<GrapeSoda> GrapeSodas;
         public List<LemonSoda> LemonSodas;

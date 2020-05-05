@@ -15,8 +15,10 @@ namespace SodaMachine
             LemonSoda lemonSoda = new LemonSoda();
             OrangeSoda orangeSoda = new OrangeSoda();
             sodaMachine.DisplaySodaOptions(grapeSoda, lemonSoda, orangeSoda);
-            sodaMachine.MakeTransaction(lemonSoda, .80);
-            sodaMachine.ChooseSodaToBuy(grapeSoda, lemonSoda, orangeSoda);
+            sodaMachine.CheckInventory(lemonSoda);
+            sodaMachine.MakeTransaction(lemonSoda, .60);
+            //sodaMachine.ChooseSodaToBuy(grapeSoda, lemonSoda, orangeSoda);//seems unnecessary
+            sodaMachine.DispenseSoda(lemonSoda);
         }
     }
 }

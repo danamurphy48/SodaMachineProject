@@ -8,6 +8,7 @@ namespace SodaMachine
 {
     class Register
     {
+        //thought to set constructor = starting amounts of coins and then use method to handle transactions
         //have a list of coins? or just leave as is
 
         //member variables (HAS A)
@@ -15,6 +16,7 @@ namespace SodaMachine
         public List<Dime> Dimes;
         public List<Nickel> Nickels;
         public List<Penny> Pennies;
+        public double money;
         //constructor (SPAWNER)
         public Register()
         {

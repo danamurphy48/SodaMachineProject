@@ -9,7 +9,7 @@ namespace SodaMachine
     class Customer
     {//should have money to buy a soda and be able to choose a soda to buy
         //member variables (HAS A)
-
+        /*public string choice;*///decide on this
         public List<Quarter> Quarters;
         public List<Dime> Dimes;
         public List<Nickel> Nickels;
@@ -18,7 +18,6 @@ namespace SodaMachine
         //constructor (SPAWNER)
         public Customer()
         {
-
             Quarters = new List<Quarter>();
             Dimes = new List<Dime>();
             Nickels = new List<Nickel>();
