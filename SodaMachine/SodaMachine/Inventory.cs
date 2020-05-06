@@ -30,7 +30,7 @@ namespace SodaMachine
                 GrapeSoda grapeSoda = new GrapeSoda();
                 GrapeSodas.Add(grapeSoda);
             }
-            for (int i = 0; i < 0; i++)
+            for (int i = 0; i < 20; i++)
             {
                 LemonSoda lemonSoda = new LemonSoda();
                 LemonSodas.Add(lemonSoda);
