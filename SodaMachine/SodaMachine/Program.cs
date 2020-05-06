@@ -19,8 +19,8 @@ namespace SodaMachine
             sodaMachine.MakeTransaction(lemonSoda, .05);
             //sodaMachine.ChooseSodaToBuy(grapeSoda, lemonSoda, orangeSoda);//seems unnecessary
             sodaMachine.DispenseSoda(lemonSoda);
-            //sodaMachine.GiveChange(lemonSoda, .60);
-            //sodaMachine.GiveChange(lemonSoda, .05);
+            sodaMachine.GiveChange(lemonSoda, .60);
+            sodaMachine.GiveChange(lemonSoda, .05);
             sodaMachine.CheckInventory(lemonSoda);
         }
     }

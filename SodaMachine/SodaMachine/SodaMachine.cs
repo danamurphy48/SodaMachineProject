@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace SodaMachine
 {
     class SodaMachine
-    {
+    {//originally just had a list for each coin no parent class
         //member variables //has a
         Inventory inventory;
         Register register;
         List<Coin> Coin;
-        //public double coins;
+        public double coins;
 
 
         //machine starts with coins: 20 quarters, 10 dimes, 20 nickels, 50 pennies
@@ -22,7 +22,12 @@ namespace SodaMachine
             inventory = new Inventory();
             register = new Register();
             Coin = new List<Coin>();
+            Quarter quarter = new Quarter();
+            Coin.Add(quarter);
         }
+
+        
+
 
         //member methods //can do
         public void DisplaySodaOptions(GrapeSoda grapeSoda, LemonSoda lemonSoda, OrangeSoda orangeSoda)
@@ -41,26 +46,54 @@ namespace SodaMachine
             string choice = Console.ReadLine();//data validation?
             return choice;
         }
-        public bool CheckInventory(Soda soda)//could do Soda soda and just pass which soda you want to know inventory
+        public void CheckInventory(Soda soda)//could do Soda soda and just pass which soda you want to know inventory
         {
-            if (soda.sodaType == "Grape soda")
+            //switch case? or pass all sodas through parameter?
+            bool inStock = false;
+            while (!inStock)
             {
-                Console.WriteLine($"Current stock of {soda.sodaType}: {inventory.GrapeSodas.Count}");
-            }
-            else if (soda.sodaType == "Lemon soda")
-            {
-                Console.WriteLine($"Current stock of {soda.sodaType}: {inventory.LemonSodas.Count}");
-            }
-            else if (soda.sodaType == "Orange soda")
-            {
-                Console.WriteLine($"Current stock of {soda.sodaType}: {inventory.OrangeSodas.Count}");
+                if (soda.sodaType == "Grape soda")
+                {
+                    Console.WriteLine($"Current stock of {soda.sodaType}: {inventory.GrapeSodas.Count}.");
+                    if (inventory.GrapeSodas.Count <= 0)
+                    {
+                        Console.WriteLine($"Currently out of stock of {soda.sodaType}: {inventory.GrapeSodas.Count}.");
+                        Console.WriteLine($"Pick a different soda to purchase.");
+                        inStock = false;
+                    }
+                    inStock = true;
+                }
+                else if (soda.sodaType == "Lemon soda")
+                {
+                    Console.WriteLine($"Current stock of {soda.sodaType}: {inventory.LemonSodas.Count}.");
+                    inStock = true;
+                    if (inventory.LemonSodas.Count <= 0)
+                    {
+                        Console.WriteLine($"Currently out of stock of {soda.sodaType}: {inventory.LemonSodas.Count}.");
+                        Console.WriteLine($"Pick a different soda to purchase.");
+                        inStock = false;
+                    }
+                    
+                }
+                else if (soda.sodaType == "Orange soda")
+                {
+                    Console.WriteLine($"Current stock of {soda.sodaType}: {inventory.OrangeSodas.Count}.");
+                    if (inventory.OrangeSodas.Count <= 0)
+                    {
+                        Console.WriteLine($"Currently out of stock of {soda.sodaType}: {inventory.OrangeSodas.Count}.");
+                        Console.WriteLine($"Pick a different soda to purchase.");
+                        inStock = false;
+                    }
+                    inStock = true;
+                }
+               
             }
 
-            return true;
         }
-        //return change method
-        public bool GiveChange(Soda soda, double coins) //or while soda.priceOfCan != coins
-        {//changeDue is coin amount
+
+        public bool GiveChange(Soda soda, double coins) //or while soda.priceOfCan != coins or does this even need if statements?
+        {//changeDue is coin amount        
+
             if (soda.priceOfCan < coins)
             {
                 coins -= soda.priceOfCan;
@@ -81,6 +114,9 @@ namespace SodaMachine
         }
         public void MakeTransaction(Soda soda, double coins)//run soda object & double money(later listofcoins) through
         {
+            List<Coin> coinList = new List<Coin>();
+            Quarter quarter = new Quarter();
+            coinList.Add(quarter);
             if (soda.priceOfCan > coins)
             {
                 Console.WriteLine($"You don't have enough money to purchase {soda.sodaType}.");
@@ -100,6 +136,21 @@ namespace SodaMachine
                 //        register.money += coin.value;
                 //        register.Quarters.Add(coin);
                 //    }
+                //    if (coin.value == .10)
+                //    {
+                //        register.money += coin.value;
+                //        register.Dimes.Add(coin);
+                //    }
+                //    if (coin.value == .05)
+                //    {
+                //        register.money += coin.value;
+                //        register.Nickels.Add(coin);
+                //    }
+                //    if (coin.value == .01)
+                //    {
+                //        register.money += coin.value;
+                //        register.Pennies.Add(coin);
+                //    }
                 //}
                 //register.money.Add(coins);
 
@@ -113,18 +164,18 @@ namespace SodaMachine
                 //coins += changeDue;//return to customer
 
                 //return change as a list of coins from internal limited register
-                //DispenseSoda();
+                DispenseSoda(soda);
             }
-            //else if ((soda.priceOfCan < coins) > register.money)
-            //{
-            //    //don't complete transaction
-            //    //give money back
-            //}
-            //else if ((soda.priceOfCan <= coins) && (inventory.GrapeSodas.Count < quantitySoda))//do I need to account multiple cans?
-            //{
-            //    //don't complete transaction
-            //    //give money back
-            //}
+            else if (soda.priceOfCan < coins && coins > register.money)
+            {
+                //don't complete transaction
+                //give money back
+            }
+            else if ((soda.priceOfCan <= coins) && (inventory.GrapeSodas.Count <= 0))//do I need to account multiple cans?
+            {
+                //don't complete transaction
+                //give money back
+            }
         }
         public void DispenseSoda(Soda soda)
         {

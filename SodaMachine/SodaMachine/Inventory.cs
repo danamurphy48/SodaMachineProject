@@ -8,7 +8,6 @@ namespace SodaMachine
 {
     class Inventory
     {
-        //grouped list of sodas? have soda parent class?
         //member variables
         public List<GrapeSoda> GrapeSodas;
         public List<LemonSoda> LemonSodas;
@@ -31,7 +30,7 @@ namespace SodaMachine
                 GrapeSoda grapeSoda = new GrapeSoda();
                 GrapeSodas.Add(grapeSoda);
             }
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < 0; i++)
             {
                 LemonSoda lemonSoda = new LemonSoda();
                 LemonSodas.Add(lemonSoda);
